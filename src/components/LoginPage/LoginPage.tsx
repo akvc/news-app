@@ -17,6 +17,7 @@ export const LoginPage = () => {
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredentials) => {
         console.log('User signed in', userCredentials);
+        navigate('/user');
       })
       .catch((error) => {
         console.log('Error');
