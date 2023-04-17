@@ -16,8 +16,9 @@ export const Article = ({ article }: ArticleProps) => {
       <div className="card-body">
         <h5 className="card-title">{article.title}</h5>
         <p className="card-text">{article.description}</p>
-        <a href={article.url} className="btn btn-primary">
-          Link to the article
+        <hr></hr>
+        <a href={article.url} className="btn btn-primary" target="__blank">
+          Read more
         </a>
       </div>
     </div>

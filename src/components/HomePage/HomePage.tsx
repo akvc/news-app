@@ -38,14 +38,14 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <>
-      <h2>Today's news: </h2>
-      <div className="articles-display">
+    <div className="mx-5 p-4">
+      <h2 className="my-4">Today's news: </h2>
+      <div className="articles-display mx-5 p-5">
         {todaysArticles.length !== 0 &&
           todaysArticles.map((article: ArticleObj) => {
             return <Article article={article} key={article.title} />;
           })}
       </div>
-    </>
+    </div>
   );
 };
