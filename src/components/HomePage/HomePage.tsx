@@ -42,7 +42,11 @@ export const HomePage = () => {
   return (
     <div className="mx-5 p-4">
       <SearchBar setKeyword={setKeyword} />
-      <h2 className="my-4">Today's news: </h2>
+      <h2 className="my-4">
+        {keyword === 'world'
+          ? `Today's news:`
+          : `Today's news about '${keyword}':`}
+      </h2>
       <div className="articles-display mx-5 p-5">
         {articles.length > 0 &&
           articles.map((article: ArticleObj) => {

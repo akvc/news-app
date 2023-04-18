@@ -9,15 +9,16 @@ interface SearchBarProps {
 }
 
 export const SearchBar = ({ setKeyword }: SearchBarProps) => {
-  const { register, handleSubmit } = useForm<SearchFormData>();
+  const { register, handleSubmit, reset } = useForm<SearchFormData>();
   const searchKeyword = ({ keyword }: SearchFormData) => {
     setKeyword(keyword);
+    reset();
   };
   return (
     <form className="mx-3" onSubmit={handleSubmit(searchKeyword)}>
       <div className="input-group">
         <input
-          type="text"
+          type="search"
           className="form-control"
           placeholder="Search news"
           {...register('keyword', { required: 'true' })}
