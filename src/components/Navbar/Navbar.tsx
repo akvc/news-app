@@ -4,7 +4,6 @@ import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { error } from 'console';
 
 interface NavbarProps {
   signedIn: boolean;
@@ -13,6 +12,7 @@ interface NavbarProps {
 
 export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
   const [profilePhoto, setProfilePhoto] = useState<string>();
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -41,10 +41,14 @@ export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
 
   return (
     <nav className="navbar bg-dark navbar-expand-lg p-2" data-bs-theme="dark">
+      {/* Logo */}
       <div className="container-fluid">
-        <span className="navbar-brand mx-2 mb-0 h1">PenguinNews</span>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <span className="navbar-brand mx-2 mb-0 h1">PenguinNews</span>
+        </Link>
       </div>
       <div className="navbar-nav me-2">
+        {/* Avatar and login button */}
         {signedIn ? (
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
@@ -66,7 +70,7 @@ export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
           </ul>
         ) : (
           <button
-            className="btn btn-primary"
+            className="btn btn-primary mx-2"
             onClick={() => navigate('/login')}
           >
             Login
