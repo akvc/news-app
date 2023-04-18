@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { auth, storage } from '../../firebaseConfig';
 import { uploadBytes, ref } from 'firebase/storage';
+import { useState } from 'react';
 
 interface ProfilePhotoFormData {
   profilePhotoList: FileList;
@@ -8,6 +9,7 @@ interface ProfilePhotoFormData {
 
 export const ProfilePhotoForm = () => {
   const { register, handleSubmit } = useForm<ProfilePhotoFormData>();
+  const [isUploaded, setIsUploaded] = useState(false);
 
   const uploadProfilePhoto = ({ profilePhotoList }: ProfilePhotoFormData) => {
     const profilePhoto = profilePhotoList[0];
@@ -18,8 +20,8 @@ export const ProfilePhotoForm = () => {
       );
       uploadBytes(storageRef, profilePhoto)
         .then((snapshot) => {
-          console.log(snapshot);
           console.log('Profile photo uploaded successfully!');
+          setIsUploaded(true);
         })
         .catch((error) => console.log(Error));
     }
@@ -39,6 +41,7 @@ export const ProfilePhotoForm = () => {
           Upload
         </button>
       </div>
+      {isUploaded && <span>Photo uploaded successfully!</span>}
     </form>
   );
 };
