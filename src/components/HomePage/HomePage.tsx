@@ -1,8 +1,9 @@
+import './HomePage.css';
 import { Article } from '../Article/Article';
 import { API_KEY } from '../../helpers/helpers';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import './HomePage.css';
+import { SearchBar } from '../SearchBar/SearchBar';
 
 export interface ArticleObj {
   title: string;
@@ -12,7 +13,8 @@ export interface ArticleObj {
 }
 
 export const HomePage = () => {
-  const [todaysArticles, setTodaysArticles] = useState([]);
+  const [articles, setArticles] = useState([]);
+  const [keyword, setKeyword] = useState('world');
 
   useEffect(() => {
     const today = new Date();
@@ -29,20 +31,21 @@ export const HomePage = () => {
 
     axios
       .get(
-        `https://newsapi.org/v2/everything?q=world&from=${date}&language=en&sortBy=popularity&apiKey=${API_KEY}`
+        `https://newsapi.org/v2/everything?q=${keyword}&from=${date}&language=en&sortBy=popularity&apiKey=${API_KEY}`
       )
       .then((response) => {
-        setTodaysArticles(response.data.articles);
+        setArticles(response.data.articles);
       })
       .catch((error) => console.log('Error'));
-  }, []);
+  }, [keyword]);
 
   return (
     <div className="mx-5 p-4">
+      <SearchBar setKeyword={setKeyword} />
       <h2 className="my-4">Today's news: </h2>
       <div className="articles-display mx-5 p-5">
-        {todaysArticles.length !== 0 &&
-          todaysArticles.map((article: ArticleObj) => {
+        {articles.length > 0 &&
+          articles.map((article: ArticleObj) => {
             return <Article article={article} key={article.title} />;
           })}
       </div>
