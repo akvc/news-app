@@ -1,8 +1,10 @@
-import { auth } from '../../firebaseConfig';
+import { auth, storage } from '../../firebaseConfig';
+import { getDownloadURL, ref } from 'firebase/storage';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { error } from 'console';
 
 interface NavbarProps {
   signedIn: boolean;
@@ -10,6 +12,7 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
+  const [profilePhoto, setProfilePhoto] = useState<string>();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -21,6 +24,20 @@ export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
       })
       .catch((error) => console.log('Error'));
   };
+
+  if (auth.currentUser) {
+    const pathReference = ref(
+      storage,
+      `/users/${auth.currentUser.uid}/profilePhoto`
+    );
+    getDownloadURL(pathReference)
+      .then((url) => {
+        setProfilePhoto(url);
+      })
+      .catch((error) => {
+        console.log('Error');
+      });
+  }
 
   return (
     <nav className="navbar bg-dark navbar-expand-lg p-2" data-bs-theme="dark">
@@ -37,7 +54,7 @@ export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
                   width="40px"
                   height="40px"
                   alt="avatar"
-                  src="https://nftnow.com/wp-content/uploads/2022/08/pudgy-penguin-6873.png"
+                  src={profilePhoto}
                 />
               </Link>
             </li>
