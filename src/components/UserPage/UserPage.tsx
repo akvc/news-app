@@ -13,6 +13,7 @@ export const UserPage = ({ signedIn }: UserPageProps) => {
       {signedIn && auth.currentUser && (
         <div className="my-4">
           <h2>Hello {auth.currentUser.email}!</h2>
+          <hr className="m-4"></hr>
           <ProfilePhotoForm />
         </div>
       )}

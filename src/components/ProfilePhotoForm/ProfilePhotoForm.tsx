@@ -28,20 +28,28 @@ export const ProfilePhotoForm = () => {
   };
 
   return (
-    <form className="form " onSubmit={handleSubmit(uploadProfilePhoto)}>
-      <span>Add or change your profile photo</span>
-      <div className="d-flex justify-content-center m-5">
-        <input
-          className="form-control mx-2"
-          style={{ width: '15%' }}
-          type="file"
-          {...register('profilePhotoList', { required: true })}
-        ></input>
-        <button className="btn btn-primary mx-2" type="submit">
-          Upload
-        </button>
-      </div>
-      {isUploaded && <span>Photo uploaded successfully!</span>}
-    </form>
+    <>
+      <form className="form" onSubmit={handleSubmit(uploadProfilePhoto)}>
+        <span className="fw-bold">Add or change your profile photo</span>
+        <div className="d-flex justify-content-center m-3">
+          <input
+            className="form-control mx-2"
+            style={{ width: '15%' }}
+            type="file"
+            {...register('profilePhotoList', { required: true })}
+          ></input>
+          <button className="btn btn-primary mx-2" type="submit">
+            Upload
+          </button>
+        </div>
+      </form>
+      {isUploaded && (
+        <div className="my-5">
+          <span className="alert alert-success my-5">
+            Photo uploaded successfully! Please refresh the page now.
+          </span>
+        </div>
+      )}
+    </>
   );
 };
