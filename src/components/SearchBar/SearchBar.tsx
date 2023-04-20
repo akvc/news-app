@@ -17,6 +17,7 @@ export const SearchBar = ({ setKeyword }: SearchBarProps) => {
 
   const resetSearch = () => {
     setKeyword('world');
+    reset();
   };
 
   return (
@@ -29,7 +30,7 @@ export const SearchBar = ({ setKeyword }: SearchBarProps) => {
             placeholder="Search news"
             {...register('keyword', { required: 'true' })}
           />
-          <button className="btn btn-secondary" type="submit">
+          <button className="btn btn-secondary from-control" type="submit">
             <i className="bi bi-search"></i>
           </button>
         </div>

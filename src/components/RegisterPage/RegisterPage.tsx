@@ -31,7 +31,8 @@ export const RegisterPage = () => {
   return (
     <div className="d-flex justify-content-center m-5">
       <form onSubmit={handleSubmit(registerUser)}>
-        <h2 className="mb-5">Register</h2>
+        <h2 className="mb-4">Sign Up</h2>
+        <hr className="mb-4"></hr>
         <div className="mb-3">
           <label className="form-label visually-hidden">Email:</label>
           <input
@@ -59,15 +60,15 @@ export const RegisterPage = () => {
             {...register('password2', { required: true })}
           />
         </div>
-        <div className="my-3">
-          <button className="btn btn-primary" type="submit">
+        <div className="mt-4 mb-3">
+          <button className="btn btn-primary fw-bold" type="submit">
             Register
           </button>
         </div>
-        <div>
+        <div className="small fst-italic">
           <span>Already a member?</span>
-          <Link className="mx-1" to="/login">
-            Log in
+          <Link className="text-decoration-none mx-1" to="/login">
+            Log In!
           </Link>
         </div>
       </form>
