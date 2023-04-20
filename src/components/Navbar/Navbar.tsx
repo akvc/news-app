@@ -43,7 +43,7 @@ export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
     <nav className="navbar bg-dark navbar-expand-lg p-2" data-bs-theme="dark">
       {/* Logo */}
       <div className="container-fluid">
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <Link to="/" className="text-decoration-none">
           <span className="navbar-brand mx-2 mb-0 h1">PenguinNews</span>
         </Link>
       </div>

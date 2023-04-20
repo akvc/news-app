@@ -14,19 +14,29 @@ export const SearchBar = ({ setKeyword }: SearchBarProps) => {
     setKeyword(keyword);
     reset();
   };
+
+  const resetSearch = () => {
+    setKeyword('world');
+  };
+
   return (
-    <form className="mx-3" onSubmit={handleSubmit(searchKeyword)}>
-      <div className="input-group">
-        <input
-          type="search"
-          className="form-control"
-          placeholder="Search news"
-          {...register('keyword', { required: 'true' })}
-        />
-        <button className="btn btn-secondary" type="submit">
-          <i className="bi bi-search"></i>
-        </button>
-      </div>
-    </form>
+    <div className="d-flex justify-content-center">
+      <form className="mx-2" onSubmit={handleSubmit(searchKeyword)}>
+        <div className="input-group">
+          <input
+            type="search"
+            className="form-control"
+            placeholder="Search news"
+            {...register('keyword', { required: 'true' })}
+          />
+          <button className="btn btn-secondary" type="submit">
+            <i className="bi bi-search"></i>
+          </button>
+        </div>
+      </form>
+      <button className="btn btn-secondary" onClick={resetSearch}>
+        <i className="bi bi-arrow-clockwise"></i>
+      </button>
+    </div>
   );
 };
