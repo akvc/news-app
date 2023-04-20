@@ -7,20 +7,21 @@ export interface ArticleProps {
 
 export const Article = ({ article }: ArticleProps) => {
   return (
-    <div className="card" style={{ width: '30rem' }}>
-      <img
-        src={article.urlToImage}
-        className="card-img-top"
-        alt={article.title}
-      />
-      <div className="card-body">
-        <h5 className="card-title">{article.title}</h5>
-        <p className="card-text">{article.description}</p>
-        <hr></hr>
-        <a href={article.url} className="btn btn-primary" target="__blank">
-          Read more
-        </a>
-      </div>
+    <div className="card" style={{ width: '32rem' }}>
+      <a
+        href={article.url}
+        className="text-decoration-none text-dark"
+        target="__blank"
+      >
+        <img
+          src={article.urlToImage === 'null' ? '' : article.urlToImage}
+          className="card-img-top"
+          alt={article.title}
+        />
+        <div className="card-body">
+          <h5 className="card-title">{article.title}</h5>
+        </div>
+      </a>
     </div>
   );
 };
