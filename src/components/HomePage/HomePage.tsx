@@ -9,7 +9,6 @@ export interface ArticleObj {
   title: string;
   urlToImage: string;
   url: string;
-  description: string;
 }
 
 export const HomePage = () => {
@@ -35,6 +34,7 @@ export const HomePage = () => {
       )
       .then((response) => {
         setArticles(response.data.articles);
+        console.log(response.data.articles);
       })
       .catch((error) => console.log('Error'));
   }, [keyword]);
