@@ -52,7 +52,7 @@ export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
         {signedIn ? (
           <ul className="navbar-nav ms-auto">
             <li className="nav-item mx-3 p-1">
-              <Link to="/" className="text-decoration-none">
+              <Link to="/bookmarks" className="text-decoration-none">
                 <i className="bi bi-bookmarks fs-5"></i>
               </Link>
             </li>
