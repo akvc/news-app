@@ -48,9 +48,14 @@ export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
         </Link>
       </div>
       <div className="navbar-nav me-2">
-        {/* Avatar and login button */}
+        {/* Bookmarks, avatar and login */}
         {signedIn ? (
           <ul className="navbar-nav ms-auto">
+            <li className="nav-item mx-3 p-1">
+              <Link to="/" className="text-decoration-none">
+                <i className="bi bi-bookmarks fs-5"></i>
+              </Link>
+            </li>
             <li className="nav-item">
               <Link to="/user">
                 <img

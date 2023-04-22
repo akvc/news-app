@@ -8,6 +8,9 @@ export interface ArticleProps {
 export const Article = ({ article }: ArticleProps) => {
   return (
     <div className="card" style={{ width: '32rem' }}>
+      <button className="btn btn-primary position-absolute top-0 end-0 m-1">
+        <i className="bi bi-bookmark-plus"></i>
+      </button>
       <a
         href={article.url}
         className="text-decoration-none text-dark"
