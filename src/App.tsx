@@ -30,7 +30,7 @@ function App() {
       <BrowserRouter>
         <Navbar signedIn={signedIn} setSignedIn={setSignedIn} />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage signedIn={signedIn} />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/user" element={<UserPage signedIn={signedIn} />} />
