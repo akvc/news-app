@@ -2,18 +2,22 @@
 
 ## Table of Contents
 
-- Introduction
-- Features
-- Screenshots
-- Technologies Used
-- API
-- Installation
-- Usage
-- Contributing
+- [Introduction](#introduction)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Technologies Used](#technologies)
+- [API](#api)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+
+<a name="introduction"/>
 
 ## Introduction
 
-**The Penguin News App** is a web-based application that allows users to stay up-to-date with the latest news from various sources. The app provides a user-friendly interface to browse news articles, search for specific topics, and save favorite articles using bookmark feature for later reading. It utilizes the News API to fetch news data from multiple sources.
+**The Penguin News App** is a web-based application that allows users to stay up-to-date with the latest news from various sources. The app provides a user-friendly interface to browse news articles, search for specific topics, and save favorite articles using bookmark feature for later reading. It utilizes the [News API](https://newsapi.org/) to fetch news data from multiple sources.
+
+<a name="features"/>
 
 ## Features
 
@@ -23,7 +27,11 @@
 - Add profile photo
 - Save favorite articles for later reading with bookmark 
 
+<a name="screenshots"/>
+
 ## Screenshots
+
+<a name="technologies"/>
 
 ## Technologies Used
 
@@ -32,9 +40,13 @@
 - Firebase: Platform for developing web and mobile applications
 - Bootstrap: Front-end CSS framework for responsive design
 
+<a name="api"/>
+
 ## API
 
-The Penguin News App utilizes the News API to fetch news data. The API provides a plethora of news sources and articles, allowing the app to display the latest news from various publishers.
+The Penguin News App utilizes the [**News API**](https://newsapi.org/) to fetch news data. The API provides a plethora of news sources and articles, allowing the app to display the latest news from various publishers.
+
+<a name="installation"/>
 
 ## Instalation
 
@@ -44,12 +56,16 @@ To run the Penguin News App locally, follow these steps:
 2. Navigate to the project directory: `cd news-app`
 3. Install the dependencies: `npm install`
 
+<a name="usage"/>
+
 ## Usage
 
 1. Get an API key from News API 
 2. Open the `src/helpers/helpers.ts` file and replace the value of `API_KEY` with your API key.
 3. Start the development server: `npm start`
 4. Open your browser and visit: `http://localhost:3000`
+
+<a name="contributing"/>
 
 ## Contributing
 
