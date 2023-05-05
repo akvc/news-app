@@ -55,11 +55,13 @@ export const HomePage = ({ signedIn }: HomePageProps) => {
         {articles.length > 0 &&
           articles.map((article: ArticleObj) => {
             return (
-              <Article
-                article={article}
-                key={article.title}
-                signedIn={signedIn}
-              />
+              <div className="article-card">
+                <Article
+                  article={article}
+                  key={article.title}
+                  signedIn={signedIn}
+                />
+              </div>
             );
           })}
       </div>

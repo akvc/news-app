@@ -34,7 +34,10 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/user" element={<UserPage signedIn={signedIn} />} />
-          <Route path="/bookmarks" element={<BookmarksPage />} />
+          <Route
+            path="/bookmarks"
+            element={<BookmarksPage signedIn={signedIn} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
