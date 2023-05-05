@@ -31,6 +31,8 @@
 
 ## Screenshots
 
+![home-page-screenshot](https://user-images.githubusercontent.com/106599762/236516589-f25a03a2-a32e-4476-950c-9d00bbb301f0.png)
+
 <a name="technologies"/>
 
 ## Technologies Used
