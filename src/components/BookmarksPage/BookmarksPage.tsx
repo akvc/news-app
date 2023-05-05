@@ -48,13 +48,17 @@ export const BookmarksPage = ({ signedIn }: BookmarksPageProps) => {
       {signedIn && auth.currentUser && (
         <div>
           <header className="mx-5">
-            <h1 className="m-4">Bookmarks page</h1>
-            <button
-              className="btn btn-primary my-2 p-2"
-              onClick={deleteBookmarkData}
-            >
-              Clear page
-            </button>
+            <h1 className="m-4 p-2">Bookmarks page</h1>
+            {articles && articles.length > 0 ? (
+              <button
+                className="btn btn-primary mt-4 p-2"
+                onClick={deleteBookmarkData}
+              >
+                Clear your bookmarks
+              </button>
+            ) : (
+              <p className="mt-4 p-2">You have no bookmarks</p>
+            )}
           </header>
           <div className="articles-display mx-5 p-5">
             {articles !== undefined &&
