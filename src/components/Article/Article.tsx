@@ -1,8 +1,8 @@
 import { ArticleObj } from '../HomePage/HomePage';
 import { database, auth } from '../../firebaseConfig';
-import { ref, push, remove } from 'firebase/database';
-import { useState } from 'react';
+import { ref, push } from 'firebase/database';
 
+const newsImage = require('../../assets/news.png');
 export interface ArticleProps {
   signedIn: boolean;
   article: ArticleObj;
@@ -47,8 +47,8 @@ export const Article = ({ article, signedIn }: ArticleProps) => {
         target="__blank"
       >
         <img
-          src={article.urlToImage === 'null' ? '' : article.urlToImage}
-          className="card-img-top"
+          src={article.urlToImage ? article.urlToImage : newsImage}
+          className="card-img-top object-fit-cover"
           alt={article.title}
         />
         <div className="card-body">
