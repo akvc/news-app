@@ -31,6 +31,8 @@
 
 ## Screenshots
 
+### **Home page**
+
 ![home-page-screenshot](https://user-images.githubusercontent.com/106599762/236516818-27d4098e-426f-47ac-8438-01af7983993c.png)
 
 <a name="technologies"/>
