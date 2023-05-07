@@ -10,12 +10,7 @@ export interface ArticleObj {
   urlToImage: string;
   url: string;
 }
-
-interface HomePageProps {
-  signedIn: boolean;
-}
-
-export const HomePage = ({ signedIn }: HomePageProps) => {
+export const HomePage = () => {
   const [articles, setArticles] = useState([]);
   const [keyword, setKeyword] = useState('world');
 
@@ -56,11 +51,7 @@ export const HomePage = ({ signedIn }: HomePageProps) => {
           articles.map((article: ArticleObj) => {
             return (
               <div className="article-card">
-                <Article
-                  article={article}
-                  key={article.title}
-                  signedIn={signedIn}
-                />
+                <Article article={article} key={article.title} />
               </div>
             );
           })}

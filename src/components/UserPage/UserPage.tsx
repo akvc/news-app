@@ -1,13 +1,10 @@
-import { useForm } from 'react-hook-form';
-import { auth, storage } from '../../firebaseConfig';
-import { useState } from 'react';
+import { auth } from '../../firebaseConfig';
+import { useContext } from 'react';
+import { authContext } from '../../helpers/authContext';
 import { ProfilePhotoForm } from '../ProfilePhotoForm/ProfilePhotoForm';
 
-interface UserPageProps {
-  signedIn: boolean;
-}
-
-export const UserPage = ({ signedIn }: UserPageProps) => {
+export const UserPage = () => {
+  const signedIn = useContext(authContext);
   return (
     <>
       {signedIn && auth.currentUser && (

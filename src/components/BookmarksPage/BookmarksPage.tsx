@@ -1,16 +1,14 @@
+import './BookmarksPage.css';
 import { Article } from '../Article/Article';
 import { ArticleObj } from '../HomePage/HomePage';
 import { auth, database } from '../../firebaseConfig';
 import { ref, onValue, remove } from 'firebase/database';
-import { useState, useEffect } from 'react';
-import './BookmarksPage.css';
+import { useState, useEffect, useContext } from 'react';
+import { authContext } from '../../helpers/authContext';
 
-interface BookmarksPageProps {
-  signedIn: boolean;
-}
-
-export const BookmarksPage = ({ signedIn }: BookmarksPageProps) => {
+export const BookmarksPage = () => {
   const [articles, setArticles] = useState<ArticleObj[]>();
+  const signedIn = useContext(authContext);
 
   useEffect(() => {
     if (signedIn && auth.currentUser) {
@@ -65,11 +63,7 @@ export const BookmarksPage = ({ signedIn }: BookmarksPageProps) => {
               articles.map((article: ArticleObj) => {
                 return (
                   <div className="article-card">
-                    <Article
-                      article={article}
-                      key={article.title}
-                      signedIn={signedIn}
-                    />
+                    <Article article={article} key={article.title} />
                   </div>
                 );
               })}

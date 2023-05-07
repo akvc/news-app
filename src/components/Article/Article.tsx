@@ -1,15 +1,18 @@
 import { ArticleObj } from '../HomePage/HomePage';
 import { database, auth } from '../../firebaseConfig';
 import { ref, push } from 'firebase/database';
+import { useContext } from 'react';
+import { authContext } from '../../helpers/authContext';
 
 const newsImage = require('../../assets/news.png');
 export interface ArticleProps {
-  signedIn: boolean;
   article: ArticleObj;
   key: string;
 }
 
-export const Article = ({ article, signedIn }: ArticleProps) => {
+export const Article = ({ article }: ArticleProps) => {
+  const signedIn = useContext(authContext);
+
   //Add article to bookmarks function
   const writeArticleData = (article: ArticleObj) => {
     if (signedIn && auth.currentUser) {

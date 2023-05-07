@@ -3,17 +3,17 @@ import { getDownloadURL, ref } from 'firebase/storage';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useContext } from 'react';
+import { authContext } from '../../helpers/authContext';
 
 interface NavbarProps {
-  signedIn: boolean;
   setSignedIn: (value: boolean) => void;
 }
 
-export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
+export const Navbar = ({ setSignedIn }: NavbarProps) => {
   const [profilePhoto, setProfilePhoto] = useState<string>();
-
   const navigate = useNavigate();
+  const signedIn = useContext(authContext);
 
   const handleLogout = () => {
     signOut(auth)

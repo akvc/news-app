@@ -13,6 +13,7 @@ import { RegisterPage } from './components/RegisterPage/RegisterPage';
 import { UserPage } from './components/UserPage/UserPage';
 import { onAuthStateChanged } from 'firebase/auth';
 import { BookmarksPage } from './components/BookmarksPage/BookmarksPage';
+import { authContext } from './helpers/authContext';
 
 function App() {
   const [signedIn, setSignedIn] = useState(false);
@@ -28,17 +29,16 @@ function App() {
   return (
     <div className="App ">
       <BrowserRouter>
-        <Navbar signedIn={signedIn} setSignedIn={setSignedIn} />
-        <Routes>
-          <Route path="/" element={<HomePage signedIn={signedIn} />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/user" element={<UserPage signedIn={signedIn} />} />
-          <Route
-            path="/bookmarks"
-            element={<BookmarksPage signedIn={signedIn} />}
-          />
-        </Routes>
+        <authContext.Provider value={signedIn}>
+          <Navbar setSignedIn={setSignedIn} />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/user" element={<UserPage />} />
+            <Route path="/bookmarks" element={<BookmarksPage />} />
+          </Routes>
+        </authContext.Provider>
       </BrowserRouter>
     </div>
   );
