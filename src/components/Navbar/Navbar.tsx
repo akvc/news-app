@@ -40,7 +40,7 @@ export const Navbar = ({ signedIn, setSignedIn }: NavbarProps) => {
   }
 
   return (
-    <nav className="navbar bg-dark navbar-expand-lg p-2" data-bs-theme="dark">
+    <nav className="navbar bg-dark navbar-expand-lg p-2 " data-bs-theme="dark">
       {/* Logo */}
       <div className="container-fluid">
         <Link to="/" className="text-decoration-none">
